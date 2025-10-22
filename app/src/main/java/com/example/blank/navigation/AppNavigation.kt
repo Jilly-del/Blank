@@ -7,6 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.blank.ui.screens.GetStarted
+import com.example.blank.ui.screens.Home
+import com.example.blank.ui.screens.SignIn
 import com.example.blank.ui.screens.SignUp
 
 @Composable
@@ -14,7 +16,9 @@ fun AppNavigation(modifier: Modifier = Modifier) {
     val navController : NavHostController = rememberNavController()
     NavHost(navController, startDestination = "get_started") {
         composable (route = "get_started"){ GetStarted(navController) }
-        composable(route = "sign_up") { SignUp() }
+        composable(route = "sign_up") { SignUp(navController) }
+        composable (route ="sign_in"){ SignIn(navController) }
+        composable (route = "Home") { Home() }
     }
 
 }

@@ -25,6 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.blank.ui.components.NavigatiionButton
 
 @Composable
 fun GetStarted(navController: NavController,modifier: Modifier = Modifier) {
@@ -63,24 +64,7 @@ fun GetStarted(navController: NavController,modifier: Modifier = Modifier) {
                 fontWeight = FontWeight.SemiBold
                 )
             Spacer(modifier = Modifier.height(80.dp))
-            Button(onClick = {
-                navController.navigate(route = "sign_up")
-            },
-                    modifier = Modifier
-                        .height(76.dp)
-                        .width(316.dp),
-
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF282828),
-                        contentColor = Color.White,
-                        disabledContentColor = Color.White,
-                        disabledContainerColor = Color(0xFF282828)),
-                shape = RoundedCornerShape(20.dp)
-
-
-                ) {
-                Text("Get Started", fontSize = 20.sp)
-            }
+            NavigatiionButton(navController, route = "sign_up")
         }
     }
 

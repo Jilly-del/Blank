@@ -1,7 +1,6 @@
 package com.example.blank.ui.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,15 +8,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import com.example.blank.R
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
@@ -25,7 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.blank.ui.components.NavigatiionButton
+import com.example.blank.ui.components.NavigationButton
 
 @Composable
 fun GetStarted(navController: NavController,modifier: Modifier = Modifier) {
@@ -34,15 +28,17 @@ fun GetStarted(navController: NavController,modifier: Modifier = Modifier) {
        Image(
            modifier= Modifier.fillMaxSize(),
            painter = painterResource( id = R.drawable.background),
-           contentDescription = "background-image"
-       )
-        Box(
-            modifier = Modifier
-                .background(color = Color(0x80262525))
-                .matchParentSize()
-        ){
+           contentDescription = "background-image",
+           alpha = 0.3F
 
-        }
+       )
+//        Box(
+//            modifier = Modifier
+//                .background(color = Color(0x80262525))
+//                .matchParentSize()
+//        ){
+//
+//        }
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -64,7 +60,12 @@ fun GetStarted(navController: NavController,modifier: Modifier = Modifier) {
                 fontWeight = FontWeight.SemiBold
                 )
             Spacer(modifier = Modifier.height(80.dp))
-            NavigatiionButton(navController, route = "sign_up")
+            NavigationButton(
+                title = "Get started",
+                onClick = {
+                    navController.navigate(route = "sign_up")
+                }
+            )
         }
     }
 

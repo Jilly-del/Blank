@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.blank.R
 import com.example.blank.ui.components.InputField
-import com.example.blank.ui.components.NavigatiionButton
+import com.example.blank.ui.components.NavigationButton
 
 @Composable
 fun SignIn( navController: NavController) {
@@ -44,7 +44,13 @@ fun SignIn( navController: NavController) {
         InputField(name = email, label = "email", onNameChange ={email = it} )
         InputField(name = passWord, label = "password", onNameChange ={passWord = it} )
 
-        NavigatiionButton(navController, route = "home" )
+        NavigationButton(
+            title = "Login",
+            onClick = {
+                navController.navigate("home")
+            }
+
+        )
     }
 
 }

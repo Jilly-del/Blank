@@ -25,11 +25,12 @@ fun InputField(name: String, label: String, onNameChange: (String) -> Unit ) {
         shape = RoundedCornerShape(10.dp),
         colors = OutlinedTextFieldDefaults.colors(
             unfocusedBorderColor = Color.Black,
-            focusedBorderColor = Color.Black
+            focusedBorderColor = Color.Black,
+            focusedTextColor = Color.Black,
+            unfocusedTextColor = Color.Black
         )
 
     )
-
 
 
 

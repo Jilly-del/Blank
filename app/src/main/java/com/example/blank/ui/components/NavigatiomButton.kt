@@ -12,13 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+
 
 @Composable
-fun NavigatiionButton(navController: NavController, route: String) {
+fun NavigationButton( title: String, onClick:() -> Unit) {
     Spacer(modifier = Modifier.height(40.dp))
     Button(onClick = {
-        navController.navigate(route = route)
+      onClick()
     },
         modifier = Modifier
             .height(76.dp)
@@ -32,6 +32,6 @@ fun NavigatiionButton(navController: NavController, route: String) {
         shape = RoundedCornerShape(20.dp)
 
     ) {
-        Text("Register", fontSize = 20.sp)
+        Text(title, fontSize = 20.sp)
     }
 }

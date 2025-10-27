@@ -27,14 +27,14 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-
 import androidx.navigation.NavController
 import com.example.blank.ui.components.InputField
-import com.example.blank.ui.components.NavigatiionButton
+import com.example.blank.ui.components.NavigationButton
 import com.example.blank.viewmodel.MainViewModel
 
+
 @Composable
-fun SignUp(navController: NavController) {
+fun SignUp(navController: NavController, viewModel: MainViewModel) {
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -72,13 +72,21 @@ fun SignUp(navController: NavController) {
             Checkbox(checked = check, onCheckedChange = {check = it})
             Text("I agree to the Terms and Conditions", color = Color.Black)
         }
-        NavigatiionButton(navController, route = "sign_in")
+        NavigationButton(
+            title = "Register",
+            onClick = {
+                navController.navigate(route = "sign_in")
+                viewModel.saveUsername(firstName)
+
+
+            }
+        )
         Spacer(modifier = Modifier.height(10.dp))
         Text(buildAnnotatedString {
             withStyle(
                 SpanStyle(color = Color.Black)
             ) {
-                append("Already have an account?",) }
+                append("Already have an account?") }
             append(" ")
             withStyle (
                 SpanStyle(color = Color.Blue)

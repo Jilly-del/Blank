@@ -12,19 +12,25 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class MainViewModel (private  val datstore : UserpreferenceRepository) : ViewModel(){
+class MainViewModel (private  val datastore : UserpreferenceRepository) : ViewModel(){
+//  This listen a change in state and update the state
     val _firstname = MutableStateFlow("")
+
+//    This create a read only version of the _firstName
     val firstname : StateFlow<String> = _firstname
 
+//    The viewModel is initialized
     init{
         viewModelScope.launch {
-            datstore.firstNameFlow.collectLatest { _firstname.value = it }
+//            on the initialization on the viewModel, the latest version of the firstName is returned
+            datastore.firstNameFlow.collectLatest { _firstname.value = it }
 
         }
     }
 
+//    saves the newName into the dataStore
     fun saveUsername(newName : String){
-        viewModelScope.launch { datstore.saveFirstName(newName) }
+        viewModelScope.launch { datastore.saveFirstName(newName) }
     }
 
 }

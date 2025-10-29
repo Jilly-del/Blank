@@ -1,15 +1,15 @@
-package com.example.blank.navigation
+package com.example.blank2.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.blank.ui.screens.GetStarted
-import com.example.blank.ui.screens.HomeScreen
-import com.example.blank.ui.screens.SignIn
-import com.example.blank.ui.screens.SignUp
-import com.example.blank.viewmodel.MainViewModel
+import com.example.blank2.ui.screens.GetStarted
+import com.example.blank2.ui.screens.HomeScreen
+import com.example.blank2.ui.screens.SignIn
+import com.example.blank2.ui.screens.SignUp
+import com.example.blank2.viewmodel.MainViewModel
 
 @Composable
 fun AppNavigation( viewModel: MainViewModel) {

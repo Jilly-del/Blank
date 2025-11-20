@@ -22,10 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BlankTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val mainViewModel: MainViewModel = viewModel()
-
                     AppNavigation()
-
                 }
             }
         }

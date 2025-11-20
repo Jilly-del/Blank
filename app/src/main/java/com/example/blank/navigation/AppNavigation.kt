@@ -1,24 +1,35 @@
-package com.example.blank2.navigation
+package com.example.blank.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.blank2.ui.screens.GetStarted
-import com.example.blank2.ui.screens.HomeScreen
-import com.example.blank2.ui.screens.SignIn
-import com.example.blank2.ui.screens.SignUp
-import com.example.blank2.viewmodel.MainViewModel
+import com.example.blank.ui.screens.GetStarted
+import com.example.blank.ui.screens.SignUp
+import com.example.blank.ui.screens.HomeScreen
+import com.example.blank.ui.screens.SignIn
+import com.example.blank.viewmodel.MainViewModel
+import androidx.compose.runtime.getValue
 
 @Composable
-fun AppNavigation( viewModel: MainViewModel) {
+fun AppNavigation() {
+val viewmodel : MainViewModel = viewModel()
+    val firstName by viewmodel.firstName.collectAsState(initial = null)
+
+    val startDestination = when {
+        firstName == null -> "get_started"
+        firstName != null -> "Home"
+        else -> "get_started"
+    }
     val navController : NavHostController = rememberNavController()
-    NavHost(navController, startDestination = "get_started") {
+    NavHost(navController, startDestination = startDestination) {
         composable (route = "get_started"){ GetStarted(navController) }
-        composable(route = "sign_up") { SignUp(navController, viewModel) }
+        composable(route = "sign_up") { SignUp(navController,viewmodel) }
         composable (route ="sign_in"){ SignIn(navController) }
-        composable (route = "Home") { HomeScreen(viewModel) }
+        composable (route = "Home") { HomeScreen() }
     }
 
 }

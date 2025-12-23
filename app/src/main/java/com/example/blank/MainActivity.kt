@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.blank.navigation.AppNavigation
+import com.example.blank.ui.screens.HomeScreen
 import com.example.blank.ui.theme.BlankTheme
 import com.example.blank.viewmodel.MainViewModel
 

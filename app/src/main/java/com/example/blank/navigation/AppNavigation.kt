@@ -19,13 +19,8 @@ fun AppNavigation() {
 val viewmodel : MainViewModel = viewModel()
     val firstName by viewmodel.firstName.collectAsState(initial = null)
 
-    val startDestination = when {
-        firstName == null -> "get_started"
-        firstName != null -> "Home"
-        else -> "get_started"
-    }
     val navController : NavHostController = rememberNavController()
-    NavHost(navController, startDestination = startDestination) {
+    NavHost(navController, startDestination = "get_started") {
         composable (route = "get_started"){ GetStarted(navController) }
         composable(route = "sign_up") { SignUp(navController,viewmodel) }
         composable (route ="sign_in"){ SignIn(navController) }

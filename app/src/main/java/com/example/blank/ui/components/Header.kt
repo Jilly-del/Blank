@@ -30,10 +30,17 @@ import com.example.blank.R
 
 @Composable
 fun Header() {
-    Column {
+    Column(
+        modifier = Modifier
+        .padding(
+            start = 20.dp,
+             end = 20.dp
+    )
+    ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Image(

@@ -31,12 +31,10 @@ import androidx.navigation.NavController
 import com.example.blank.R
 import com.example.blank.ui.components.InputField
 import com.example.blank.ui.components.NavigationButton
-import com.example.blank.viewmodel.MainViewModel
 
 @Composable
 fun SignUp(
     navController: NavController,
-    mainViewModel: MainViewModel
 ) {
 
     var firstName by remember { mutableStateOf("") }
@@ -80,9 +78,6 @@ fun SignUp(
             title = "Register",
             onClick = {
                 navController.navigate(route = "sign_in")
-                 mainViewModel.SavefirstName(firstName)
-
-
             }
         )
         Spacer(modifier = Modifier.height(10.dp))

@@ -15,7 +15,7 @@ import com.example.blank.ui.components.Items
 
 
 @Composable
-fun HomeScreen() {
+fun Home() {
     Column(
         modifier = Modifier
         .padding(
@@ -26,6 +26,7 @@ fun HomeScreen() {
         Spacer(modifier = Modifier.height(20.dp))
         HeroSection()
         Items()
+
     }
 }
 

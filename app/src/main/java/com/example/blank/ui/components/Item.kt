@@ -14,8 +14,6 @@ fun Items() {
     ) {
         items(cartItems){ item ->
             CartItemCard(item)
-
-
         }
     }
 }
